@@ -1,1 +1,0 @@
-# Ikumi_app
