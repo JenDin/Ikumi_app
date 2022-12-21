@@ -7,7 +7,7 @@
         Thank you for your reservation at Ikumi!
       </p>
       <p class="text-center text-green-700">
-        {{ date }} for {{ guestAmount }} guest(s) at {{ time }}
+        A confirmation email will be sent to you.
       </p>
     </div>
     <h2 class="text-4xl font-bold text-center -mt-4 mb-6">Book here</h2>
@@ -78,12 +78,11 @@
           Date
         </label>
 
-        <input
-          type="date"
-          name="date"
-          id="reservation-date"
+        <Datepicker
+          class="border border-black bg-white"
           v-model="date"
-          class="w-full border border-black bg-white py-1 px-2 text-base"
+          :min-date="new Date()"
+          :enable-time-picker="false"
         />
       </div>
 

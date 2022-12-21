@@ -13,9 +13,9 @@
 
   <div class="lg:flex md:w-10/12 lg:w-1/2 m-auto max-w-6xl">
     <article class="p-4 mt-10">
-      <h2 class="text-2xl text-center uppercase font-bold">Wine</h2>
+      <h2 class="mb-6 text-2xl text-center uppercase font-bold">Wine</h2>
       <div class="flex justify-center items-center max-w-xl m-auto flex-wrap">
-        <DrinkMenu v-for="drink in drinks" :drink="drink" :key="drink.id" />
+        <WineMenu v-for="drink in drinks" :drink="drink" :key="drink.id" />
       </div>
     </article>
 
@@ -24,9 +24,9 @@
     ></div>
 
     <article class="p-4 mt-10">
-      <h2 class="text-2xl text-center uppercase font-bold">Saké</h2>
+      <h2 class="mb-6 text-2xl text-center uppercase font-bold">Saké</h2>
       <div class="flex justify-center items-center max-w-xl m-auto flex-wrap">
-        <DrinkMenu v-for="drink in drinks" :drink="drink" :key="drink.id" />
+        <SakeMenu v-for="drink in drinks" :drink="drink" :key="drink.id" />
       </div>
     </article>
   </div>
@@ -39,14 +39,16 @@
 <script>
 import Header from "../components/Header.vue";
 import Button from "../components/Button.vue";
-import DrinkMenu from "../components/DrinkMenu.vue";
+import SakeMenu from "../components/SakeMenu.vue";
+import WineMenu from "../components/WineMenu.vue";
 import Footer from "../components/Footer.vue";
 
 export default {
   components: {
     Header,
     Button,
-    DrinkMenu,
+    SakeMenu,
+    WineMenu,
     Footer,
   },
   data() {
