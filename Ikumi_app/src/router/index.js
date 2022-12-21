@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import FoodMenuView from "../views/FoodMenuView.vue";
 import DrinkMenuView from "../views/DrinkMenuView.vue";
 import GalleryView from "../views/GalleryView.vue";
+import ReservationView from "../views/ReservationView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: "/gallery",
       name: "gallery",
       component: GalleryView,
+    },
+    {
+      path: "/reservations",
+      name: "reservations",
+      component: ReservationView,
     },
   ],
 });
