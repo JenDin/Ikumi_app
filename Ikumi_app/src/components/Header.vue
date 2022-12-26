@@ -75,16 +75,6 @@ export default {
         return this.isActive;
       }
     },
-    mouseOver() {
-      const reservations = document.querySelector("#test");
-      reservations.style.textDecoration = "underline";
-      reservations.style.textDecorationColor = "#fb923c";
-      reservations.style.textDecorationThickness = "3px";
-    },
-    mouseLeave() {
-      const reservations = document.querySelector("#test");
-      reservations.style.textDecoration = "none";
-    },
   },
 };
 </script>

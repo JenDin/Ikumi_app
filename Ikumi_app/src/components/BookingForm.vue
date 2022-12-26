@@ -10,36 +10,41 @@
         A confirmation email will be sent to you.
       </p>
     </div>
-    <h2 class="text-4xl font-bold text-center -mt-4 mb-6">Book here</h2>
+    <h2 class="text-4xl font-bold text-center -mt-5 mb-3">Book here</h2>
     <form class="border-2 border-black p-6" @submit.prevent="addBooking()">
-      <!-- First name/Last name container -->
-      <div class="lg:flex flex-wrap justify-between">
-        <div class="pr-2 mb-5 lg:w-1/2">
-          <label for="name" class="mb-1 block text-base font-medium">
-            First name
-          </label>
-          <input
-            type="text"
-            name="firstName"
-            v-model="firstName"
-            class="w-full border border-black bg-white py-1 px-2 text-base"
-          />
-        </div>
-        <div class="mb-5 lg:w-1/2">
-          <label for="name" class="mb-1 block text-base font-medium">
-            Last name
-          </label>
-          <input
-            type="text"
-            name="lastName"
-            v-model="lastName"
-            class="w-full border border-black bg-white py-1 px-2 text-base"
-          />
-        </div>
+      <div class="mb-3">
+        <label for="name" class="mb-1 block text-base font-medium">
+          First name
+        </label>
+        <input
+          type="text"
+          name="firstName"
+          v-model="firstName"
+          class="w-full border border-black bg-white py-1 px-2 text-base"
+        />
+
+        <span v-if="firstNameErrorMsg" class="text-sm text-customRed mt-0.5">
+          * Please enter a first name
+        </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="name" class="mb-1 block text-base font-medium">
+          Last name
+        </label>
+        <input
+          type="text"
+          name="lastName"
+          v-model="lastName"
+          class="w-full border border-black bg-white py-1 px-2 text-base"
+        />
+        <span v-if="lastNameErrorMsg" class="text-sm text-customRed mt-0.5">
+          * Please enter a last name
+        </span>
       </div>
 
       <!-- Email -->
-      <div class="mb-5">
+      <div class="mb-3">
         <label for="email" class="mb-1 block text-base font-medium">
           Email
         </label>
@@ -49,10 +54,13 @@
           v-model="email"
           class="w-full border border-black bg-white py-1 px-2 text-base"
         />
+        <p v-if="emailErrorMsg" class="text-sm text-customRed mt-0.5">
+          * Please enter an email
+        </p>
       </div>
 
       <!-- Guest amount -->
-      <div class="mb-5">
+      <div class="mb-3">
         <label for="subject" class="mb-1 block text-base font-medium">
           Guest amount
         </label>
@@ -70,10 +78,13 @@
           <option value="7">7 guests</option>
           <option value="8">8 guests</option>
         </select>
+        <p v-if="guestAmountErrorMsg" class="text-sm text-customRed mt-0.5">
+          * Please enter the guest amount
+        </p>
       </div>
 
       <!-- Date -->
-      <div class="mb-5">
+      <div class="mb-3">
         <label for="email" class="mb-1 block text-base font-medium">
           Date
         </label>
@@ -84,6 +95,9 @@
           :min-date="new Date()"
           :enable-time-picker="false"
         />
+        <p v-if="dateErrorMsg" class="text-sm text-customRed mt-0.5">
+          * Please enter a date
+        </p>
       </div>
 
       <!-- Time -->
@@ -106,6 +120,9 @@
           <option value="20:30">20:30</option>
           <option value="21:00">21:00</option>
         </select>
+        <p v-if="timeErrorMsg" class="text-sm text-customRed mt-0.5">
+          * Please enter a time
+        </p>
       </div>
 
       <Button btnText="Book" />
@@ -130,11 +147,58 @@ export default {
       guestAmount: "",
       date: "",
       time: "",
+      firstNameErrorMsg: false,
+      lastNameErrorMsg: false,
+      emailErrorMsg: false,
+      guestAmountErrorMsg: false,
+      dateErrorMsg: false,
+      timeErrorMsg: false,
+      isSent: false,
       successMsg: false,
     };
   },
+  computed: {
+    firstNameErrorMsg() {
+      if (this.firstName === "" && this.isSent) {
+        return true;
+      }
+      return false;
+    },
+    lastNameErrorMsg() {
+      if (this.lastName === "" && this.isSent) {
+        return true;
+      }
+      return false;
+    },
+    emailErrorMsg() {
+      if (this.email === "" && this.isSent) {
+        return true;
+      }
+      return false;
+    },
+    guestAmountErrorMsg() {
+      if (this.guestAmount === "" && this.isSent) {
+        return true;
+      }
+      return false;
+    },
+    dateErrorMsg() {
+      if (this.date === "" && this.isSent) {
+        return true;
+      }
+      return false;
+    },
+    timeErrorMsg() {
+      if (this.time === "" && this.isSent) {
+        return true;
+      }
+      return false;
+    },
+  },
   methods: {
     async addBooking() {
+      this.isSent = true;
+
       const bookingBody = {
         firstName: this.firstName,
         lastName: this.lastName,
@@ -145,28 +209,38 @@ export default {
       };
 
       try {
-        const resp = await fetch("http://localhost:3000/api/bookings", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(bookingBody),
-        });
+        if (
+          this.firstName !== "" &&
+          this.lastName !== "" &&
+          this.email !== "" &&
+          this.guestAmount !== "" &&
+          this.date !== "" &&
+          this.time !== ""
+        ) {
+          const resp = await fetch("http://localhost:3000/api/bookings", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify(bookingBody),
+          });
 
-        const data = await resp.json();
+          const data = await resp.json();
 
-        this.firstName = "";
-        this.lastName = "";
-        this.email = "";
-        this.guestAmount = "";
-        this.date = "";
-        this.time = "";
-        this.successMsg = true;
+          this.firstName = "";
+          this.lastName = "";
+          this.email = "";
+          this.guestAmount = "";
+          this.date = "";
+          this.time = "";
+          this.isSent = false;
+          this.successMsg = true;
 
-        setTimeout(() => {
-          this.successMsg = false;
-        }, 10000);
+          setTimeout(() => {
+            this.successMsg = false;
+          }, 10000);
+        }
       } catch (error) {
         console.log(error);
       }
