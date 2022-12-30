@@ -1,5 +1,6 @@
 <!-- HTML code -->
 <template>
+  <!-- Print all the dishes beloning to the Sashimi category -->
   <div
     class="container max-w-md text-center mb-2"
     v-if="dish.category === 'Sashimi/Nigiri'"

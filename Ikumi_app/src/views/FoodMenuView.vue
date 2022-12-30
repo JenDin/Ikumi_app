@@ -3,6 +3,7 @@
   <Header />
   <h1 class="text-4xl text-center uppercase font-bold mt-8 mb-10">Menu</h1>
 
+  <!-- Link to the drinks menu -->
   <div class="flex justify-center">
     <button
       class="mb-8 border-2 border-black p-2 hover:bg-black hover:text-white"
@@ -11,6 +12,7 @@
     </button>
   </div>
 
+  <!-- Menu container -->
   <div class="md:flex md:w-10/12 lg:w-1/2 m-auto max-w-6xl">
     <article class="p-4 mt-10">
       <h2 class="mb-6 text-2xl text-center uppercase font-bold">
@@ -34,7 +36,6 @@
   </div>
 
   <Footer />
-  <!-- </div> -->
 </template>
 
 <!-- JavaScript code -->
@@ -71,7 +72,7 @@ export default {
       }
     },
   },
-  created() {
+  mounted() {
     this.getDishes();
   },
 };

@@ -9,6 +9,7 @@
           <h1 class="text-white">Ikumi</h1>
         </RouterLink>
       </div>
+
       <!-- Nav links -->
       <ul
         class="navMenu flex justify-between items-center gap-8 pb-2 md:pb-0"
@@ -92,7 +93,6 @@ export default {
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
   }
-
   .navMenu {
     position: fixed;
     left: -100%;
@@ -104,11 +104,9 @@ export default {
     transition: 0.3s;
     background: #131515be;
   }
-
   .nav-item {
     margin: 16px 0;
   }
-
   .active {
     left: 0;
     z-index: 1;

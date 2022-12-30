@@ -1,5 +1,6 @@
 <!-- HTML code -->
 <template>
+  	<!-- Print all the dishes beloning to the Sake category -->
   <div
     class="container max-w-md text-center mb-3"
     v-if="drink.category === 'Sake'"

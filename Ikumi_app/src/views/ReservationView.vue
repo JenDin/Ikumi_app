@@ -16,16 +16,20 @@
   </div>
 
   <section class="container m-auto md:flex max-w-[1100px] mb-36">
+    <!-- Image on larger screens -->
     <div class="hidden md:block md:w-1/2 p-8">
       <div>
-        <img src="src/assets/sushi_piece.jpg" alt="" />
+        <img
+          src="src/assets/sushi_piece.jpg"
+          alt="Sushi chef holding a piece of sushi with chop sticks"
+        />
       </div>
     </div>
 
     <div
       class="hidden md:block max-w-[90%] m-auto md:m-0 lg:max-w-full border-2 h-auto relative top-0 border-black"
     ></div>
-
+    <!-- Booking form -->
     <div class="md:w-1/2 flex items-center justify-center p-12">
       <BookingForm />
     </div>
