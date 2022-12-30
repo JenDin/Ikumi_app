@@ -57,17 +57,6 @@ export default {
     };
   },
   methods: {
-    async getDishes() {
-      try {
-        const resp = await fetch("http://localhost:3000/api/drinks");
-
-        const data = await resp.json();
-
-        this.dishes = data;
-      } catch (error) {
-        console.log(error);
-      }
-    },
     async getDrinks() {
       try {
         const resp = await fetch("http://localhost:3000/api/drinks");
@@ -81,7 +70,6 @@ export default {
     },
   },
   created() {
-    this.getDishes();
     this.getDrinks();
   },
 };
