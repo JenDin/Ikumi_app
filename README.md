@@ -1,6 +1,6 @@
 # Ikumi restaurant
 
-This is a public restaurant intended for visitors and guests of the fictional sushi restaurant Ikumi.
+This is a public website intended for visitors and guests of the fictional sushi restaurant Ikumi.
 This website is a single page application built with Vue.js 3 and Tailwind CSS.
 
 Visitors can view the menu and reserve a table through an API built with Node.js/Express, which communicates with a MongoDB database.
