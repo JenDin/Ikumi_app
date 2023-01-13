@@ -9,7 +9,7 @@ This website includes:
 
 - Front page
 - Menu
-- Gallery page
+- Gallery 
 - Table reservations
 
 ![Screenshot 2023-01-13 at 15 00 49](https://user-images.githubusercontent.com/78862890/212337580-4dc48736-c5a3-4b87-b60c-eac72ea4b768.png)
