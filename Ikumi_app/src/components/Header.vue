@@ -1,16 +1,21 @@
 <!-- HTML code -->
 <template>
   <header>
+    <!-- Navbar -->
     <nav
       class="navbar flex justify-between items-center py-2 px-4 min-h-[70px] bg-[#131515be] text-white"
     >
       <div href="#">
         <RouterLink to="/" class="text-2xl uppercase text-white">
-          <h1 class="text-white">Ikumi</h1>
+          <img
+            src="src/assets/logo.png"
+            alt="Logo that reads Ikumi"
+            class="w-28"
+          />
         </RouterLink>
       </div>
 
-      <!-- Nav links -->
+      <!-- Nav links using Vue Router -->
       <ul
         class="navMenu flex justify-between items-center gap-8 pb-2 md:pb-0"
         :class="[{ active: isActive }]"

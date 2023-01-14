@@ -1,7 +1,7 @@
 <!-- HTML code -->
 <template>
   <div class="mx-auto w-full sm:w-10/12 lg:w-[500px] lg:max-w-[500px]">
-    <!-- Confirmation message -->
+    <!-- Confirmation message above the form -->
     <div class="mb-6" v-if="successMsg">
       <p class="text-center font-semibold text-green-700">
         Thank you for your reservation at Ikumi!
@@ -15,6 +15,7 @@
 
     <!-- Booking form -->
     <form class="border-2 border-black p-6" @submit.prevent="addBooking()">
+      <!-- First name -->
       <div class="mb-3">
         <label for="name" class="mb-1 block text-base font-medium">
           First name
@@ -31,6 +32,7 @@
         </span>
       </div>
 
+      <!-- Last name -->
       <div class="mb-3">
         <label for="name" class="mb-1 block text-base font-medium">
           Last name
@@ -165,6 +167,7 @@ export default {
       successMsg: false,
     };
   },
+  // Computed properties that render the form error msgs if the inputs are empty
   computed: {
     firstNameErrorMsg() {
       if (this.firstName === "" && this.isSent) {
@@ -204,6 +207,7 @@ export default {
     },
   },
   methods: {
+    // Create new booking
     async addBooking() {
       this.isSent = true;
 

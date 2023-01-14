@@ -13,7 +13,8 @@
   </div>
 
   <!-- Menu container -->
-  <div class="lg:flex md:w-10/12 lg:w-1/2 m-auto max-w-6xl">
+  <div class="lg:flex md:w-10/12 lg:w-1/2 m-auto max-w-6xl mb-36">
+    <!-- Print all dishes belonging to the category WINE -->
     <article class="p-4 mt-10">
       <h2 class="mb-6 text-2xl text-center uppercase font-bold">Wine</h2>
       <div class="flex justify-center items-center max-w-xl m-auto flex-wrap">
@@ -25,6 +26,7 @@
       class="max-w-[90%] m-auto lg:m-0 lg:max-w-full border-2 h-auto relative top-0 border-black"
     ></div>
 
+    <!-- Print all dishes belonging to the category SAKÉ -->
     <article class="p-4 mt-10">
       <h2 class="mb-6 text-2xl text-center uppercase font-bold">Saké</h2>
       <div class="flex justify-center items-center max-w-xl m-auto flex-wrap">

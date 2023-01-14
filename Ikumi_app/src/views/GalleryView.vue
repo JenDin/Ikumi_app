@@ -3,8 +3,8 @@
   <Header />
   <h1 class="text-4xl text-center uppercase font-bold mt-8 mb-4">Gallery</h1>
 
-  <!-- Three top images -->
   <div class="container mx-auto px-4">
+    <!-- Three top images -->
     <section class="py-8 px-4">
       <div class="flex flex-wrap -mx-4">
         <div class="hidden md:block md:w-1/2 px-4">

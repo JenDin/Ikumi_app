@@ -37,10 +37,7 @@ export default {
 
 @media screen and (min-width: 300px) and (max-width: 768px) {
   .hero-image {
-    /* width: 100%;
-	  height: 100vh; */
     background-position: center;
-    /* background-size: cover; */
   }
 }
 </style>

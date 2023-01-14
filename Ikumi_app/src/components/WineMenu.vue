@@ -1,6 +1,6 @@
 <!-- HTML code -->
 <template>
-  <!-- Print all the dishes beloning to the Wine category -->
+  <!-- Print all the dishes belonging to the Wine category -->
   <div
     class="container max-w-md text-center mb-3"
     v-if="drink.category === 'Wine'"
